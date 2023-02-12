@@ -45,8 +45,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       < Navbar />
-      <div className={styles.container}>
-        <div className={styles.header}>
+      <div className="container">
+        <div className="header">
           <div className="header-title">
             <h1>audit your smart contracts</h1>
           </div>
@@ -70,7 +70,7 @@ export default function Home() {
                 onClick={callGenerateEndpoint}
               >
                 <div className="generate">
-                {isGenerating ? <span className="loader"></span> : <p>Generate</p>}
+                {isGenerating ? <span className="loader"></span> : <p>Generate report</p>}
                 </div>
               </a>
             </div>
