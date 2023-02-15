@@ -1,4 +1,4 @@
-import { Configuration, OpenAIApi } from 'openai';
+import { Configuration, CreateCompletionResponseChoicesInner, OpenAIApi } from 'openai';
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
@@ -43,7 +43,7 @@ const basePromptPrefix = `
     
     This is the contract:
     `;
-const generateAction = async (req, res) => {
+const generateAction = async (req: { body: { userInput: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { output: CreateCompletionResponseChoicesInner | undefined; }): void; new(): any; }; }; }) => {
   // Run first prompt
   console.log(`API: ${basePromptPrefix}${req.body.userInput}\n`)
 
