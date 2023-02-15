@@ -48,10 +48,10 @@ export default function Home() {
       <div className="container">
         <div className="header">
           <div className="header-title">
-            <h1>audit your smart contracts</h1>
+            <h1>protect your smart contracts</h1>
           </div>
           <div className="header-subtitle">
-            <h2>efortlessly secure your contracts in minutes, for free.</h2>
+            <h2>get a quick pre-audit and find vulnerabilities early.</h2>
           </div>
           <br />
         </div>
