@@ -5,10 +5,11 @@ import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import { Navbar } from '@/components/Navbar'
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-
+  
   const [userInput, setUserInput] = useState('');
   const [apiOutput, setApiOutput] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
@@ -35,10 +36,14 @@ export default function Home() {
   const onUserChangedText = (event: { target: { value: SetStateAction<string>; }; }) => {
     setUserInput(event.target.value);
   };
+  
 
   return (
     <>
       <Head>
+
+      
+
         <title>auditz</title>
         <meta name="description" content="Audit your smart contracts in minutes" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -48,16 +53,16 @@ export default function Home() {
       <div className="container">
         <div className="header">
           <div className="header-title">
-            <h1>protect your smart contracts</h1>
+            <h1>secure your contracts</h1>
           </div>
           <div className="header-subtitle">
-            <h2>get a quick pre-audit and find vulnerabilities early.</h2>
+            <h2>quickly scan smart contracts for vulnerabilities and get a detailed report.</h2>
           </div>
           <br />
         </div>
         <div className="prompt-container">
           <div>
-            <p>Copy your contract here:</p>
+            <p>Paste your contract here:</p>
           </div>
           <textarea
             className="prompt-box"
