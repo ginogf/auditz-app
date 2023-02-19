@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import { Navbar } from '@/components/Navbar'
+import { useEffect } from 'react';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -36,14 +37,84 @@ export default function Home() {
   const onUserChangedText = (event: { target: { value: SetStateAction<string>; }; }) => {
     setUserInput(event.target.value);
   };
-  
+
+  const [styledOutput, setStyledOutput] = useState('');
+
+  useEffect(() => {
+
+    const formattedOutput = apiOutput.replace(/\n/g, '<br>');
+
+    // Wrap specific parts of the output in <span> tags with class names
+    const styledText = formattedOutput
+      .replace(/(Issues Identified:)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Issues found:)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Security Vulnerabilities:)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Solution:)/gi, '<span class="highlight">$1</span>')
+      // .replace(/(For example)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Code example)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Default Visibility:)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Integer Overflow and Underflow:)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Outdated Compiler Version:)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Floating Pragma)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Unchecked Call Return Value)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Access Control & Authorization)/gi, '<span class="highlight">$1</span>')
+      .replace(/(SELFDESTRUCT Instruction)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Check-Effect-Interaction)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Assert Violation)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Deprecated Solidity Functions)/gi, '<span class="highlight">$1</span>')
+      .replace(/(DoS)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Denial of Service)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Race Conditions)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Authorization through tx.origin)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Block values as a proxy for time)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Signature Unique Id)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Shadowing State Variable)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Weak Sources of Randomness)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Incorrect Inheritance Order)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Calls Only to Trusted Addresses)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Presence of Unused Variables)/gi, '<span class="highlight">$1</span>')
+      .replace(/(EIP Standards Violation)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Assets Integrity)/gi, '<span class="highlight">$1</span>')
+      .replace(/(User Balances Manipulation)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Data Consistency)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Flashloan Attack)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Token Supply Manipulation)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Gas Limit and Loops)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Style Guide Violation)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Requirements Compliance)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Environment Consistency)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Secure Oracles Usage)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Tests Coverage)/gi, '<span class="highlight">$1</span>')
+      .replace(/(Stable Imports)/gi, '<span class="highlight">$1</span>')
+      // .replace(/(1.)/gi, '<span class="highlight">$1</span>')
+      // .replace(/(2.)/gi, '<span class="highlight">$1</span>')
+      // .replace(/(3.)/gi, '<span class="highlight">$1</span>')
+      // .replace(/(4.)/gi, '<span class="highlight">$1</span>')
+      // .replace(/(5.)/gi, '<span class="highlight">$1</span>')
+      // .replace(/(6.)/gi, '<span class="highlight">$1</span>')
+      // .replace(/(7.)/gi, '<span class="highlight">$1</span>')
+      // .replace(/(8.)/gi, '<span class="highlight">$1</span>')
+      // .replace(/(9.)/gi, '<span class="highlight">$1</span>')
+      // .replace(/(10.)/gi, '<span class="highlight">$1</span>')
+      // .replace(/(11.)/gi, '<span class="highlight">$1</span>')
+      // .replace(/(12.)/gi, '<span class="highlight">$1</span>')
+      // .replace(/(13.)/gi, '<span class="highlight">$1</span>')
+      // .replace(/(14.)/gi, '<span class="highlight">$1</span>')
+      // .replace(/(15.)/gi, '<span class="highlight">$1</span>')
+      // .replace(/(16.)/gi, '<span class="highlight">$1</span>')
+      // .replace(/(17.)/gi, '<span class="highlight">$1</span>')
+      // .replace(/(18.)/gi, '<span class="highlight">$1</span>')
+      // .replace(/(19.)/gi, '<span class="highlight">$1</span>')
+      // .replace(/(20.)/gi, '<span class="highlight">$1</span>')
+
+      ;
+
+      setStyledOutput(styledText);
+  }, [apiOutput]);
 
   return (
     <>
       <Head>
-
-      
-
         <title>auditz</title>
         <meta name="description" content="Audit your smart contracts in minutes" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -81,6 +152,8 @@ export default function Home() {
             </a>
           </div>
         </div>
+       
+
         {apiOutput && (
           <div className="report-container">
             <div className="output-header-container">
@@ -89,7 +162,7 @@ export default function Home() {
               </div>
             </div>
             <div className="output-content">
-              <p>{apiOutput}</p>
+              <div dangerouslySetInnerHTML={{ __html: styledOutput }} />
             </div>
           </div>
         )}

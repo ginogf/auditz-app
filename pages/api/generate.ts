@@ -19,7 +19,6 @@ SELFDESTRUCT Instruction
 Check-Effect-Interaction
 Assert Violation
 Deprecated Solidity Functions
-Delegatecall to Untrusted Callee
 DoS (Denial of Service)
 Race Conditions
 Authorization through tx.origin
@@ -35,7 +34,7 @@ Assets Integrity
 User Balances Manipulation
 Data Consistency
 Flashloan Attack
-Token Supply Manipulation
+Token Supply 
 Gas Limit and Loops
 Style Guide Violation
 Requirements Compliance

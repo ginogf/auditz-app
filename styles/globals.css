@@ -340,6 +340,11 @@ textarea {
     color: rgba(49, 49, 49, 0.871);
 }
 
+.highlight {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
 @media (min-width: 1200px) {
   .container {
       max-width: 1000px;
