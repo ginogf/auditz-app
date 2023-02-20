@@ -5,6 +5,7 @@ import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import { Navbar } from '@/components/Navbar'
 import { useEffect } from 'react';
+import mixpanel from 'mixpanel-browser';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -15,10 +16,14 @@ export default function Home() {
   const [apiOutput, setApiOutput] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
 
+  mixpanel.init('0c0941bf35802b4c39a55d05c695c8b3', {debug: true});
+  mixpanel.track('page loaded');
+
   const callGenerateEndpoint = async () => {
     setIsGenerating(true);
 
     console.log("Calling OpenAI...")
+    mixpanel.track('generate report button clicked');
     const response = await fetch('/api/generate', {
       method: 'POST',
       headers: {
@@ -36,6 +41,7 @@ export default function Home() {
   }
   const onUserChangedText = (event: { target: { value: SetStateAction<string>; }; }) => {
     setUserInput(event.target.value);
+    mixpanel.track('text input changed');
   };
 
   const [styledOutput, setStyledOutput] = useState('');
@@ -110,6 +116,7 @@ export default function Home() {
       ;
 
       setStyledOutput(styledText);
+      mixpanel.track('report generated');
   }, [apiOutput]);
 
   return (

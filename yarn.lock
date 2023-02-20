@@ -137,6 +137,11 @@
   "resolved" "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz"
   "version" "0.0.29"
 
+"@types/mixpanel-browser@^2.38.1":
+  "integrity" "sha512-XzQbwgiOPsFXUQnjz3vSwcwrvJDbQ35bCiwa/1VXGrHvU1ti9+eqO1GY91DShzkEzKkkEEkxfNshS5dbBZqd7w=="
+  "resolved" "https://registry.npmjs.org/@types/mixpanel-browser/-/mixpanel-browser-2.38.1.tgz"
+  "version" "2.38.1"
+
 "@types/node@18.13.0":
   "integrity" "sha512-gC3TazRzGoOnoKAhUx+Q0t8S9Tzs74z7m0ipwGpSqQrleP14hKxP4/JUeEQcD3W1/aIpnWl8pHowI7WokuZpXg=="
   "resolved" "https://registry.npmjs.org/@types/node/-/node-18.13.0.tgz"
@@ -1445,6 +1450,11 @@
   "integrity" "sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA=="
   "resolved" "https://registry.npmjs.org/minimist/-/minimist-1.2.8.tgz"
   "version" "1.2.8"
+
+"mixpanel-browser@^2.45.0":
+  "integrity" "sha512-PQ1DaTk68yyYtLA0iejmzPA9iNDhT4uIZpqZjRTw7HWpYfl123fydHb2laKanaKjm8YDmrGGz3+xZ4Q6joogyg=="
+  "resolved" "https://registry.npmjs.org/mixpanel-browser/-/mixpanel-browser-2.45.0.tgz"
+  "version" "2.45.0"
 
 "ms@^2.1.1":
   "integrity" "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="
