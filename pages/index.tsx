@@ -125,7 +125,7 @@ export default function Home() {
         <title>auditz</title>
         <meta name="description" content="Audit your smart contracts in minutes" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" />
       </Head>
       < Navbar />
       <div className="container">
