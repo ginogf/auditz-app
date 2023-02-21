@@ -21,6 +21,7 @@ body {
     overflow: auto;
     padding: 0px;
     position: relative;
+    width: 100vw;
 }
 
 .container {
@@ -31,13 +32,13 @@ body {
     flex-flow: column nowrap;
     gap: 10px;
     height: fit-content;
-    max-width: 100%;
+    width: 100%;
     overflow: auto;
-    padding: 50px;
+    padding: 0;
     position: relative;
     width: auto;
-    gap: 64px;
-    padding-top: 80px;
+    gap: 20px;
+    padding-top: 0px;
 }
 
 
@@ -49,8 +50,8 @@ body {
 
 .header-title h1 {
     width: 100%;
-    font-weight: 700;
-    font-size: 72px;
+    font-weight: 600;
+    font-size: 65px;
     letter-spacing: -4px;
     line-height: 1.2em;
     text-align: center;
@@ -439,3 +440,15 @@ textarea {
         transform: rotate(360deg);
     }
 }
+
+.navbar {
+    background-color: white !important;
+    border-bottom: 1px solid transparent;
+    width: 100% !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    position: fixed;
+    display: flex;
+    overflow: hidden;
+    z-index: 9999;
+  }
